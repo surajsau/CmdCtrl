@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Ctrl!",
+  "name": "CmdCtrl",
   "description": "Extension to help you browse Java github code like in IDE",
   "version": "1.0.1",
   "background": {
