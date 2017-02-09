@@ -6,8 +6,9 @@ chrome.tabs.onUpdated.addListener (function(tabId, changeInfo, tab){
 
 		//--url belongs to githubs
 		if(tabUrl.indexOf(baseUrl) > -1) {
-			var sourceRegex = /^(https?):\/\/(github\.com)\/([\w]+)\/([\S]+)\/blob\/([\w]+)\/(.*)\/(src\/main\/java)\/(.*)\/([\w]+\.java)/;
+			var sourceRegex = /^(https?):\/\/(github\.com)\/([\w]+)\/([\S]+)\/blob\/([\S]+)\/(.*)\/(src\/main\/java)\/(.*)\/([\w]+\.java)/;
 			var result = tabUrl.match(sourceRegex);
+			console.log(result);
 			if(result) {
 				var len = result.length;
 				console.log(result);
