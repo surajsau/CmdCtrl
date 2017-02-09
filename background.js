@@ -8,10 +8,10 @@ chrome.tabs.onUpdated.addListener (function(tabId, changeInfo, tab){
 		if(tabUrl.indexOf(baseUrl) > -1) {
 			var sourceRegex = /^(https?):\/\/(github\.com)\/([\w]+)\/([\S]+)\/blob\/([\S]+)\/(.*)\/(src\/main\/java)\/(.*)\/([\w]+\.java)/;
 			var result = tabUrl.match(sourceRegex);
-			console.log(result);
+			// console.log(result);
 			if(result) {
 				var len = result.length;
-				console.log(result);
+				// console.log(result);
 
 				var protocol = result[1];
 				var domain = result[2];
@@ -24,8 +24,8 @@ chrome.tabs.onUpdated.addListener (function(tabId, changeInfo, tab){
 				var packageNameWithSlashes = result[len - 2];
 				var packageName = packageNameWithSlashes.replace(/\//g, ".");
 				var repoPath = moduleName + "/src/main/java/" + packageNameWithSlashes;
-				console.log("Package name : " + packageName);
-				console.log("Class name : " + className);
+				// console.log("Package name : " + packageName);
+				// console.log("Class name : " + className);
 
 
 				var msg = {
@@ -41,14 +41,14 @@ chrome.tabs.onUpdated.addListener (function(tabId, changeInfo, tab){
 			        repoPath: repoPath
 				}
 
-				console.log(msg)
+				// console.log(msg);
 
 				chrome.tabs.sendMessage(tab.id, msg, function(loggedData){
 					if(jQuery) {
-						console.log('Jquery loaded');
-						console.log(loggedData);
+						// console.log('Jquery loaded');
+						// console.log(loggedData);
 					} else {
-						console.log('Jquery not loaded');
+						// console.log('Jquery not loaded');
 					}
 				});
 			}

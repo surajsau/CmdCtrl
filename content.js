@@ -34,7 +34,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse){
 		repoPath = msg.repoPath;
 
 		var contentApiUrl = githubContentApiBaseUrl + "/" + userName + "/" + repoName + "/contents/" + repoPath;
-		console.log("calling " + contentApiUrl);
+		// console.log("calling " + contentApiUrl);
 		$.ajax({
 			type 	: "GET",
 			url 	: contentApiUrl,
@@ -47,10 +47,10 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse){
 					currentDirectoryBroweseableClasses.push(currentDirectoryBrowseableClass);
 				}
 
-				console.log(currentDirectoryBroweseableClasses);
+				// console.log(currentDirectoryBroweseableClasses);
 
 				for(var i=0; i<currentDirectoryBroweseableClasses.length; i++) {
-					console.log(currentDirectoryBroweseableClasses[i].className + " " + currentDirectoryBroweseableClasses[i].classHtmlUrl );
+					// console.log(currentDirectoryBroweseableClasses[i].className + " " + currentDirectoryBroweseableClasses[i].classHtmlUrl );
 					var elem = $('td :contains(' + currentDirectoryBroweseableClasses[i].className + ')');
 					for(var j = 0; j<elem.length; j++) {
 						var code = $(elem[j]).text();
@@ -66,7 +66,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse){
 				}
 			},
 			error	: function(data, status, jqXHR){
-				console.log(data);
+				// console.log(data);
 			}
 		});
 
@@ -123,7 +123,7 @@ function linkifyClass(isValidUrl, className, innerwrap) {
 		var code = $(elem[j]).text();
 		var result = code.match(validClassNameRegex);
 
-		console.log(innerwrap);
+		// console.log(innerwrap);
 		if (result) {
 			if(~code.indexOf('List') || ~code.indexOf('ArrayList') || ~code.indexOf('Set') || ~code.indexOf('Iterator')) {
 				$(elem[j]).wrapInner(innerwrap);
