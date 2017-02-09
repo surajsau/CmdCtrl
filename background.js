@@ -22,6 +22,7 @@ chrome.tabs.onUpdated.addListener (function(tabId, changeInfo, tab){
 				var className = result[len - 1];
 				var packageNameWithSlashes = result[len - 2];
 				var packageName = packageNameWithSlashes.replace(/\//g, ".");
+				var repoPath = moduleName + "/src/main/java/" + packageNameWithSlashes;
 				console.log("Package name : " + packageName);
 				console.log("Class name : " + className);
 
@@ -35,7 +36,8 @@ chrome.tabs.onUpdated.addListener (function(tabId, changeInfo, tab){
 			        branchName: branchName,
 			        moduleName: moduleName,
 			        srcFolder: srcFolder,
-			        packageName: packageName
+			        packageName: packageName,
+			        repoPath: repoPath
 				}
 
 				console.log(msg)
